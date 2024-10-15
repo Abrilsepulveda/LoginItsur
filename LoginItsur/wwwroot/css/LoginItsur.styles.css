@@ -54,14 +54,8 @@ h3 {
         min-height: 100%;*/ /* Asegura que la imagen tenga un mínimo de altura igual a la tarjeta de inicio de sesión */
     /*}*/
 
-.card-header img {
-    max-width: 100px; /* Ajusta el ancho del logo */
-    height: auto; /* Mantiene la proporción */
-}
-
 .card img {
     height: auto; /* Asegura que la imagen se ajuste */
-    max-height: 300px; /* Ajusta la altura máxima de la imagen lateral */
+    max-height: 200px; /* Ajusta la altura máxima de la imagen lateral */
     object-fit: cover; /* Asegura que la imagen mantenga su proporción sin distorsionarse */
 }
-
