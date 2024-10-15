@@ -1,9 +1,9 @@
 ﻿/* Fondo de la página de login */
 .login-background {
-    background-color: rgb(31,61,119) ; /* Color de fondo claro */
+    background-color: #929292 ; /* Color de fondo claro */
     /*background-image: url('../images/background_image.jpg');*/ /* Imagen de fondo si es necesario */
-    background-size: cover;
-    background-position: center;
+/*    background-size: cover;*/
+    background-position: bottom;
 }
 
 /* Estilos para la tarjeta de login */
