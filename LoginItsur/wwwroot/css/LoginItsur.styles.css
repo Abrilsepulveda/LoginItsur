@@ -1,15 +1,13 @@
-﻿/* Fondo de la página de login */
-.login-background {
-    background-color: #929292 ; /* Color de fondo claro */
-    /*background-image: url('../images/background_image.jpg');*/ /* Imagen de fondo si es necesario */
-/*    background-size: cover;*/
-    background-position: bottom;
-}
+﻿
 
 /* Estilos para la tarjeta de login */
 .card {
-    border-radius: 15px; /* Bordes redondeados */
-    overflow: hidden;
+    background-color: white; /* Color de fondo de la tarjeta */
+    border-radius: 0.5rem; /* Redondear las esquinas de la tarjeta */
+}
+
+.shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra alrededor de la tarjeta */
 }
 
 .card-body {
