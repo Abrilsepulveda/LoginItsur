@@ -12,6 +12,7 @@
 
 .card-body {
     padding: 1rem; /* Ajusta el padding de la tarjeta */
+    text-align: left;
 }
 
 .card-header {
@@ -23,8 +24,8 @@ h3 {
 }
 
 .btn-primary {
-    background-color: #007bff; /* Color del botón */
-    border-color: #007bff; /* Color del borde del botón */
+    background-color: #cc5500; /* Color del botón */
+    border-color: #cc5500; /* Color del borde del botón */
 }
 
     .btn-primary:hover {
