@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using LoginItsur.Models.
+using LoginItsur.Logica;
 
 namespace LoginItsur.Controllers
 {
@@ -8,5 +10,11 @@ namespace LoginItsur.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Index(string UserId, string Cotrasenia) {
+
+            Usuarios objeto = new LO_Usuario().EncontrarUsuario(UserId, Cotrasenia);
+
+            return View();
     }
 }
