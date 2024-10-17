@@ -28,13 +28,11 @@ namespace LoginItsur.Models
                         {
                             LoginItsur Orden = new LoginItsur
                             {
-                                NroOrdenTrabajo = reader.GetDecimal(reader.GetOrdinal("NroOrdenTrabajo")),
-                                Cliente = reader.GetInt32(reader.GetOrdinal("Cliente")),
-                                Sistema = reader.GetInt32(reader.GetOrdinal("Sistema")),
-                                Asunto = reader.GetString(reader.GetOrdinal("Asunto")),
-                                FechaSolicitud = reader.GetDateTime(reader.GetOrdinal("FechaSolicitud")),
-                                UserIDSolicitante = reader.GetString(reader.GetOrdinal("UserIDSolicitante"))
-                            };
+                                UserID = reader.GetDecimal(reader.GetOrdinal("UserID")),
+                                Cotrasenia = reader.GetInt32(reader.GetOrdinal("Cotrasenia")),
+                                Administrador = reader.GetInt32(reader.GetOrdinal("Administrador")),
+                                CambiarContrasenia = reader.GetString(reader.GetOrdinal("CambiarContrasenia")),
+                            
                             Loginitsur.Add(Login);
                         }
                     }
