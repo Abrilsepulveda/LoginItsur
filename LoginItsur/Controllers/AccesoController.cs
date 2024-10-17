@@ -13,7 +13,7 @@ namespace LoginItsur.Controllers
         [HttpPost]
         public ActionResult Index(string UserId, string Cotrasenia) {
 
-            Usuarios objeto = new LO_Usuario().EncontrarUsuario(UserId, Cotrasenia);
+            Usuarios objeto = new Usuarios().EncontrarUsuario(UserId, Cotrasenia);
 
             return View();
     }

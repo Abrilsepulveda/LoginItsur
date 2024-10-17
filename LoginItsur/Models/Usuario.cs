@@ -1,50 +1,49 @@
-﻿using LoginItsur.services;
+﻿using System.Linq.Expressions;
+using LoginItsur.services;
 using System.Data.SqlClient;
 
 namespace LoginItsur.Models
 {
     public class Usuarios
     {
-        public decimal UserID { get; set; }
-        public int Cotrasenia { get; set; }
-        public int Administrador { get; set; }
-        public string CambiarContrasenia { get; set; }
-       
+        public string UserID { get; set; }
+        public string Cotrasenia { get; set; }
+        public string Administrador { get; set; }
 
-        public static List<LoginItsur> ObtenerLista(string consulta)
+        public Usuarios EncontrarUsuario(string UserID, string Cotrasenia)
         {
 
-            List<LoginItsur> OrdenesTrabajo = new List<LoginItsur>();
+            Usuarios usuario = new Usuarios();
+
+            string query = "Select UserID, Cotrasenia, Administrador from Usuarios WHERE UserID = @puserid and Cotrasenia = @pcotrasenia";
             ConexionDB conexionDB = new ConexionDB();
             conexionDB.AbrirConexion();
-            using (SqlCommand command = new SqlCommand(consulta, conexionDB.con))
-
+            using (SqlCommand comand = new SqlCommand(query, conexionDB.con))
             {
+                comand.Parameters.AddWithValue("@puserid", UserID);
+                comand.Parameters.AddWithValue("@pcotrasenia", Cotrasenia);
                 try
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlDataReader reader = comand.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            LoginItsur Orden = new LoginItsur
+                            usuario = new Usuarios()
                             {
-                                UserID = reader.GetDecimal(reader.GetOrdinal("UserID")),
-                                Cotrasenia = reader.GetInt32(reader.GetOrdinal("Cotrasenia")),
-                                Administrador = reader.GetInt32(reader.GetOrdinal("Administrador")),
-                                CambiarContrasenia = reader.GetString(reader.GetOrdinal("CambiarContrasenia")),
-                            
-                            Loginitsur.Add(Login);
+                                UserID = reader["UserID"].ToString(),
+                                Cotrasenia = reader["Cotrasenia"].ToString(),
+                                Administrador = reader["Administrador"].ToString(),
+                            };
                         }
                     }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Hubo un error al ejecutar la consulta: " + e.ToString());
+                    Console.WriteLine(ex.Message());
                 }
             }
-            return Loginitsur;
+            return usuario;
         }
     }
-
 }
- 
+       
