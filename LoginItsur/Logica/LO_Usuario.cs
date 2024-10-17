@@ -7,14 +7,14 @@ using Microsoft.Extensions.Configuration.UserSecrets;
 
 namespace LoginItsur.Logica
 {
-    public class LO_Usuario
+    public class Usuarios
     {
         public Usuarios EncontrarUsuario(string correo, string clave)
         {
 
             Usuarios objeto = new Usuarios();
 
-            using (SqlConnection conexion = new SqlConnection("Data source=(mercurio) ; Initial Catalog=Db_ITsur_CSharp; "))
+       
 
             string query = "select UserId, Cotrasenia, Administrador, CambiarContrasenia from Usuarios where UserID = @puserID and Contrasenia = @pcontrasenia";
             SqlCommand cmd = new SqlCommand(query, conexion);

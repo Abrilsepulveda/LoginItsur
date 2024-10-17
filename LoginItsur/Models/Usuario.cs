@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace LoginItsur.Models
 {
-    public class LoginItsur
+    public class Usuarios
     {
         public decimal UserID { get; set; }
         public int Cotrasenia { get; set; }

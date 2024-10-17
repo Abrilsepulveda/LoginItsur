@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using LoginItsur.Models.
+using LoginItsur.Models;
 using LoginItsur.Logica;
 
 namespace LoginItsur.Controllers
