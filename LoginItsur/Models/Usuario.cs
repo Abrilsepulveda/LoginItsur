@@ -1,22 +1,20 @@
 ﻿using LoginItsur.services;
-using Sistema_OT.Services;
 using System.Data.SqlClient;
 
-namespace Sistema_OT.Models
+namespace LoginItsur.Models
 {
-    public class OrdenDeTrabajo
+    public class LoginItsur
     {
-        public decimal NroOrdenTrabajo { get; set; }
-        public int Cliente { get; set; }
-        public int Sistema { get; set; }
-        public string Asunto { get; set; }
-        public DateTime FechaSolicitud { set; get; }
-        public string UserIDSolicitante { get; set; }
+        public decimal UserID { get; set; }
+        public int Cotrasenia { get; set; }
+        public int Administrador { get; set; }
+        public string CambiarContrasenia { get; set; }
+       
 
-        public static List<OrdenDeTrabajo> ObtenerLista(string consulta)
+        public static List<LoginItsur> ObtenerLista(string consulta)
         {
 
-            List<OrdenDeTrabajo> OrdenesTrabajo = new List<OrdenDeTrabajo>();
+            List<LoginItsur> OrdenesTrabajo = new List<LoginItsur>();
             ConexionDB conexionDB = new ConexionDB();
             conexionDB.AbrirConexion();
             using (SqlCommand command = new SqlCommand(consulta, conexionDB.con))
@@ -28,7 +26,7 @@ namespace Sistema_OT.Models
                     {
                         while (reader.Read())
                         {
-                            OrdenDeTrabajo Orden = new OrdenDeTrabajo
+                            LoginItsur Orden = new LoginItsur
                             {
                                 NroOrdenTrabajo = reader.GetDecimal(reader.GetOrdinal("NroOrdenTrabajo")),
                                 Cliente = reader.GetInt32(reader.GetOrdinal("Cliente")),
@@ -37,7 +35,7 @@ namespace Sistema_OT.Models
                                 FechaSolicitud = reader.GetDateTime(reader.GetOrdinal("FechaSolicitud")),
                                 UserIDSolicitante = reader.GetString(reader.GetOrdinal("UserIDSolicitante"))
                             };
-                            OrdenesTrabajo.Add(Orden);
+                            Loginitsur.Add(Login);
                         }
                     }
                 }
@@ -46,9 +44,9 @@ namespace Sistema_OT.Models
                     Console.WriteLine("Hubo un error al ejecutar la consulta: " + e.ToString());
                 }
             }
-            return OrdenesTrabajo;
+            return Loginitsur;
         }
     }
 
 }
-
+ 
